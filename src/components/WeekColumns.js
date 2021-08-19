@@ -29,7 +29,10 @@ export const WEEK_COLUMNS = [
     Header: 'BaseRuns9',
     Footer: 'BaseRuns9',
     accessor: 'base_runs_p9',
-    disableFilters: true
+    disableFilters: true,
+    Cell: ({ value }) => {
+      return format(value, value.toFixed(1))
+    }
   },
   {
     Header: 'BRpct',
@@ -37,7 +40,7 @@ export const WEEK_COLUMNS = [
     accessor: 'br9_rank',
     disableFilters: true,
     Cell: ({ value }) => {
-      return format(value, value.toFixed(1))
+      return format(value, value.toFixed(3))
     }
   },
   {
@@ -53,7 +56,10 @@ export const WEEK_COLUMNS = [
     Header: 'HH9pct',
     Footer: 'HH9pct',
     accessor: 'hh9_rank',
-    disableFilters: true
+    disableFilters: true,
+    Cell: ({ value }) => {
+      return format(value, value.toFixed(3))
+    }
   },
   {
     Header: 'xBB%',
@@ -61,7 +67,7 @@ export const WEEK_COLUMNS = [
     accessor: 'xwr',
     disableFilters: true,
     Cell: ({ value }) => {
-      return format(value, value.toFixed(3))
+      return format(value, value.toFixed(2))
     }
     
   },
@@ -69,26 +75,38 @@ export const WEEK_COLUMNS = [
     Header: 'xK%',
     Footer: 'xK%',
     accessor: 'expected_k_pct',
-    disableFilters: true
+    disableFilters: true,
+    Cell: ({ value }) => {
+      return format(value, value.toFixed(2))
+    }
   },
   {
     Header: 'xBB/K',
     Footer: 'xBB/K',
     accessor: 'xbbk',
     disableFilters: true,
+    Cell: ({ value }) => {
+      return format(value, value.toFixed(2))
+    }
 },
  {
     Header: 'xBB/Kpct',
     Footer: 'xBB/Kpct',
     accessor:'xbbk_rank',
     disableFilters: true,
+    Cell: ({ value }) => {
+      return format(value, value.toFixed(3))
+    }
     
   },
   {
     Header: 'BW PCT',
     Footer: 'BW PCT',
     accessor: '3M Batting Pct',
-    disableFilters: true
+    disableFilters: true,
+    Cell: ({ value }) => {
+      return format(value, value.toFixed(3))
+    }
 },
  {
     Header: 'Rank',

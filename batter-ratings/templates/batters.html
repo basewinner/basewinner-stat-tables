@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <title>MLB Batting</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" />
+    <link rel="stylesheet" href="static/styles/styles.css" />
+    <link rel="stylesheet" href="static/styles/balloon.min.css" />
+    <meta name="published" content="{{ published.format('dddd, MMMM D @ h:mm a') }}" />
+    <meta name="cache-key" content="{{ published.format('YYYY-MM-DD') }}" />
+  </head>
+
+  <body>
+    {% raw %}
+    <div id="app">
+      <main>
+        <header>
+          <h1>MLB Batters</h1>
+          <p>Published {{ published }} ET</p>
+        </header>
+        <nav>
+          <select id="teams" v-model="teamFilter">
+            <option value="*">All Teams</option>
+            <option v-for="team in teams" v-bind:value="team.abbr">{{ team.name }}</option>
+          </select>
+          <select id="leagues" v-model="leagueFilter">
+            <option value="*">All Leagues</option>
+            <option value="AL*">American League</option>
+            <option value="ALE"> - AL East</option>
+            <option value="ALC"> - AL Central</option>
+            <option value="ALW"> - AL West</option>
+            <option value="NL*">National League</option>
+            <option value="NLE"> - NL East</option>
+            <option value="NLC"> - NL Central</option>
+            <option value="NLW"> - NL West</option>
+          </select>
+          <input type="text" v-model="textFilter" placeholder="Filter Players (Use commas)" />
+        </nav>
+        <table v-if="dataFetched" v-cloak>
+          <thead>
+            <tr>
+              <th aria-label="Overall MLB Rank" data-balloon-pos="up">MLB Rank</th>
+              <th aria-label="Full Name" data-balloon-pos="up" class="left"
+                v-bind:class="sortedClass('name')">Batter</th>
+              <th aria-label="Current Team" data-balloon-pos="up"
+								v-on:click="handleSortClick('team')"
+                v-bind:class="sortedClass('team')">Team</th>
+              <th aria-label="Games" data-balloon-pos="up"
+								v-on:click="handleSortClick('g')"
+                v-bind:class="sortedClass('g')">G</th>
+              <th aria-label="Plate Appearances" data-balloon-pos="up"
+								v-on:click="handleSortClick('pa')"
+                v-bind:class="sortedClass('pa')">PA</th>
+              <th aria-label="Home Runs" data-balloon-pos="up"
+								v-on:click="handleSortClick('hr')"
+                v-bind:class="sortedClass('hr')">HR</th>
+              <th aria-label="Runs" data-balloon-pos="up"
+								v-on:click="handleSortClick('r')"
+                v-bind:class="sortedClass('r')">R</th>
+              <th aria-label="Runs Batted In" data-balloon-pos="up"
+								v-on:click="handleSortClick('rbi')"
+                v-bind:class="sortedClass('rbi')">RBI</th>
+              <th aria-label="Stolen Bases" data-balloon-pos="up"
+								v-on:click="handleSortClick('sb')"
+                v-bind:class="sortedClass('sb')">SB</th>
+              <th aria-label="Walks" data-balloon-pos="up"
+								v-on:click="handleSortClick('bb')"
+                v-bind:class="sortedClass('bb')">BB %</th>
+              <th aria-label="Strikeouts" data-balloon-pos="up"
+								v-on:click="handleSortClick('k')"
+                v-bind:class="sortedClass('k')">K</th>
+              <th aria-label="Isolated Power" data-balloon-pos="up"
+								v-on:click="handleSortClick('iso')"
+                v-bind:class="sortedClass('iso')">ISO</th>
+              <th aria-label="Batting Average on Balls in Play" data-balloon-pos="up"
+								v-on:click="handleSortClick('babip')"
+                v-bind:class="sortedClass('babip')">BABip</th>
+              <th aria-label="Batting Average" data-balloon-pos="up"
+								v-on:click="handleSortClick('avg')"
+                v-bind:class="sortedClass('avg')">AVG</th>
+              <th aria-label="On Base Percentage" data-balloon-pos="up"
+								v-on:click="handleSortClick('obp')"
+                v-bind:class="sortedClass('obp')">OBP</th>
+              <th aria-label="Slugging Percentage" data-balloon-pos="up"
+								v-on:click="handleSortClick('slg')"
+                v-bind:class="sortedClass('slg')">SLG</th>
+              <th aria-label="Weighted On-Base Average" data-balloon-pos="up"
+								v-on:click="handleSortClick('woba')"
+                v-bind:class="sortedClass('woba')">WOBa</th>
+              <th aria-label="Weighted Runs Created Plus" data-balloon-pos="up"
+								v-on:click="handleSortClick('wrc')"
+                v-bind:class="sortedClass('wrc')">WRC+</th>
+              <th aria-label="Wins Above Replacement" data-balloon-pos="up"
+								v-on:click="handleSortClick('war')"
+                v-bind:class="sortedClass('war')">WAR</th>
+            </tr>
+          </thead>
+          <tbody v-if="displayPlayers.length > 0">
+            <tr v-for="player in displayPlayers" v-bind:key="player.key">
+              <td>{{ player.mlb_rank }}</td>
+              <td class="left">{{ player.name }}</td>
+              <td class="left">
+                <img v-bind:src="teamLogoUrl(player.team)" class="logo" />
+                <span>{{ filterOutBlankTeams(player.team) }}</span>
+              </td>
+              <td>{{ player.g }}</td>
+              <td>{{ player.pa }}</td>
+              <td>{{ player.hr }}</td>
+              <td>{{ player.r }}</td>
+              <td>{{ player.rbi }}</td>
+              <td>{{ player.sb }}</td>
+              <td>{{ player.bb|fmt_pct }}</td>
+              <td>{{ player.k|fmt_pct }}</td>
+              <td>{{ player.iso }}</td>
+              <td>{{ player.babip }}</td>
+              <td>{{ player.avg }}</td>
+              <td>{{ player.obp }}</td>
+              <td>{{ player.slg }}</td>
+              <td>{{ player.woba }}</td>
+              <td>{{ player.wrc }}</td>
+              <td>{{ player.war }}</td>
+            </tr>
+          </tbody>
+          <tbody v-else>
+            <tr>
+              <td colspan="23">No players match your given filters.</td>
+            </tr>
+          </tbody>
+        </table>
+	<div id="loading" v-else>
+          Loading Data...
+	</div>
+      </main>
+    </div>
+  </body>
+  {% endraw %}
+
+  <script src="static/scripts/vue.js"></script>
+  <script src="static/scripts/fangraphs.js"></script>
+  <script src="static/scripts/main.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", main);</script>
+</html>

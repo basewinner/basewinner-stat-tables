@@ -1,0 +1,187 @@
+* {
+  box-sizing: border-box;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+}
+
+main {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0B2748;
+  padding: 20px 0px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+h1, h2, h3 {
+  margin: 10px;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 0.9em;
+  font-weight: 300;
+  color: #666;
+}
+
+table, tr, th, td {
+  border: 0.5px solid #0B2748;
+  border-collapse: collapse;
+}
+
+table {
+  margin: 20px auto;
+  width: 900px;
+  font-size: 0.9em;
+}
+
+tr.even {
+  background-color: #efefef;
+}
+
+tr.odd {
+  background-color: #fff;
+}
+
+th, td {
+  text-align: center;
+  font-size: 1.1em;
+}
+
+td {
+  padding: 10px;
+  color: #414141;
+  font-weight: 400;
+  vertical-align: center;
+}
+
+th {
+  padding: 10px;
+  font-size: 0.8em;
+  background-color: #0B2748;
+  color: #fff;
+  font-weight: normal;
+  user-select: none;
+}
+
+th:hover {
+  cursor: pointer;
+}
+
+th.sorted {
+  font-weight: bold;
+  color: #EFDC05;
+}
+
+td.date {
+  line-height: 1.6em;
+}
+
+th.left, td.left {
+  text-align: left;
+}
+
+td.blank {
+  opacity: 0;
+}
+
+td.nowrap {
+  white-space: nowrap;
+}
+
+img.logo {
+  height: 20px;
+  width: 20px;
+  margin-right: 15px;
+  float: left;
+}
+
+select {
+  border-radius: 0px;
+  background: transparent;
+  border: 1px solid #aaa;
+  border-radius: 0;
+  color: #666;
+  font-size: 1.0em;
+  height: 35px;
+  line-height: 1.2em;
+  text-indent: 8px;
+  width: 200px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  background: url(../images/gray_caret.png) no-repeat 100% #fff;
+  background-position: right 5px bottom 6px;
+  background-size: 18px 22px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+input[type=text] {
+  border: 1px solid #aaa;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  display: inline-block;
+  width: 260px;
+  height: 35px;
+  font-size: 1.0em;
+  line-height: 1.2em;
+  text-indent: 8px;
+}
+
+span.better {
+  color: #377D21;
+}
+
+span.worse {
+  color: #BF2D33;
+}
+
+table {
+  width: 1024px;
+}
+
+select:last-child {
+  margin-right: none;
+}
+
+div#loading {
+  margin-top: 25px;
+  font-size: 1.5em;
+  color: #aaa;
+}
+
+@media (min-width: 1500px) {
+  body {
+    font-size: 16px;
+  }
+  td {
+    padding: 12px;
+  }
+  table {
+    width: 1200px;
+  }
+}
+
