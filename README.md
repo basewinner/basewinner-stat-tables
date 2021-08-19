@@ -1,12 +1,12 @@
 # Basewinner Offense
 
-This app will enable you to navigate to three different React tables to access unique and proprietary MLB stats.
+This app will enable you to navigate to three different React tables to access standard MLB stats as well as unique and proprietary MLB stats we have procured.
 
 ## Database Schema and API
 
 The raw data that is used in this project is scraped from fangraphs.com. We use Pandas to transform the some of raw data into Basewinner ratings and numbers.
 
-The data is then stored in a SQlite database. The ORM used is Peewee.
+We use Python on the back end to compile and store some of the ratings. The data is stored in a SQlite database. The ORM used is Peewee.
 
 Here is the database schema for the table.
 
