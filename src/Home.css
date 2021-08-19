@@ -1,0 +1,17 @@
+.Home img {
+  width: 45%;
+  height: 50%;
+  border-radius: 5%;
+  border: 4px solid rgb(11, 39, 72);
+  box-shadow: 0 0 10px #9e9e9e;
+}
+
+.text-center {
+  color: black;
+  text-align: center;
+}
+
+.list-center {
+  color: rgb(11, 39, 72);
+  text-align: center;
+}
