@@ -36,6 +36,9 @@ export const WEEK_COLUMNS = [
     Footer: 'BRpct',
     accessor: 'br9_rank',
     disableFilters: true,
+    Cell: ({ value }) => {
+      return format(value, value.toFixed(1))
+    }
   },
   {
     Header: 'HH9',
