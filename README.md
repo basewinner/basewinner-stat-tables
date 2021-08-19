@@ -1,6 +1,8 @@
 # Basewinner Offense
 
-This app will enable you to navigate to three different React tables to access standard MLB stats as well as unique and proprietary MLB stats we have procured.
+This app enables you to navigate to three different React tables to access standard MLB stats as well as unique and proprietary MLB stats we have procured.
+
+https://basewinner-stat-tables.herokuapp.com/
 
 ## Database Schema and API
 

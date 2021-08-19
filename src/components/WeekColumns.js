@@ -96,8 +96,7 @@ export const WEEK_COLUMNS = [
     disableFilters: true,
     Cell: ({ value }) => {
       return format(value, value.toFixed(3))
-    }
-    
+    }  
   },
   {
     Header: 'BW PCT',
