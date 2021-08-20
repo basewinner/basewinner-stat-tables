@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { basic }from './sortTypes'
 
 export const COLUMNS = [
   {
@@ -12,6 +13,7 @@ export const COLUMNS = [
     Header: 'Team',
     Footer: 'Team',
     accessor: 'Team',
+    width: '40',
   },
 
   {
@@ -49,6 +51,7 @@ export const COLUMNS = [
     Footer: 'xwOBA',
     accessor: 'xwOBA',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(3))
     }

@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { basic }from './sortTypes'
 
 export const WEEK_COLUMNS = [
 
@@ -38,6 +39,7 @@ export const WEEK_COLUMNS = [
     Header: 'BRpct',
     Footer: 'BRpct',
     accessor: 'br9_rank',
+    sortType: basic,
     disableFilters: true,
     Cell: ({ value }) => {
       return format(value, value.toFixed(3))
@@ -57,6 +59,7 @@ export const WEEK_COLUMNS = [
     Footer: 'HH9pct',
     accessor: 'hh9_rank',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(3))
     }
@@ -66,6 +69,7 @@ export const WEEK_COLUMNS = [
     Footer: 'xBB%',
     accessor: 'xwr',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(2))
     }
@@ -76,6 +80,7 @@ export const WEEK_COLUMNS = [
     Footer: 'xK%',
     accessor: 'expected_k_pct',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(2))
     }
@@ -85,6 +90,7 @@ export const WEEK_COLUMNS = [
     Footer: 'xBB/K',
     accessor: 'xbbk',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(2))
     }
@@ -93,6 +99,7 @@ export const WEEK_COLUMNS = [
     Header: 'xBB/Kpct',
     Footer: 'xBB/Kpct',
     accessor:'xbbk_rank',
+    sortType: basic,
     disableFilters: true,
     Cell: ({ value }) => {
       return format(value, value.toFixed(3))
@@ -103,6 +110,7 @@ export const WEEK_COLUMNS = [
     Footer: 'BW PCT',
     accessor: '3M Batting Pct',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(3))
     }
@@ -111,6 +119,7 @@ export const WEEK_COLUMNS = [
     Header: 'Rank',
     Footer: 'Rank',
     accessor: '3M Batting Rank',
+    sortType: basic,
     disableFilters: true
   },
 ]

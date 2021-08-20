@@ -1,4 +1,6 @@
 import { format } from 'date-fns'
+import { basic }from './sortTypes'
+
 
 export const EXPECTED_COLUMNS = [
   {
@@ -29,6 +31,7 @@ export const EXPECTED_COLUMNS = [
     Header: 'PCT',
     accessor: 'PCT',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(3))
     }
@@ -77,8 +80,9 @@ export const EXPECTED_COLUMNS = [
     Footer: 'xPCT',
     accessor: 'Implied PCt',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
-      return format(value, value.toFixed(3))
+      return (format(value, value.toFixed(3)))
     }
   },
   {
@@ -86,6 +90,7 @@ export const EXPECTED_COLUMNS = [
     Footer: 'xW +-',
     accessor: 'Xwins +-',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(1))
     }
