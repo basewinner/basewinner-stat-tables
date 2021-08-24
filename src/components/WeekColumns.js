@@ -106,13 +106,13 @@ export const WEEK_COLUMNS = [
     }  
   },
   {
-    Header: 'BW PCT',
-    Footer: 'BW PCT',
+    Header: 'BW Points',
+    Footer: 'BW Points',
     accessor: '3M Batting Pct',
     disableFilters: true,
     sortType: basic,
     Cell: ({ value }) => {
-      return format(value, value.toFixed(3))
+      return format(value, value.toFixed(1))
     }
 },
  {

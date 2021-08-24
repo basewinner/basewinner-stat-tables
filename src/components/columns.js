@@ -33,6 +33,7 @@ export const COLUMNS = [
     Footer: 'K%',
     accessor: 'K%',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(2))
     }
@@ -42,6 +43,7 @@ export const COLUMNS = [
     Footer: 'BB%',
     accessor: 'BB%',
     disableFilters: true,
+    sortType: basic,
     Cell: ({ value }) => {
       return format(value, value.toFixed(2))
     }
