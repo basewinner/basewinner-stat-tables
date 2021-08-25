@@ -1,3 +1,12 @@
 .standings {
   text-align: center;
 }
+
+.left {
+  margin: 0px auto;
+  text-align: center;
+  padding-top: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: rgb(11, 39, 72);
+}
