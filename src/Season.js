@@ -6,7 +6,7 @@ import { Link, Redirect } from "react-router-dom";
 function Season() {
   return (
     <div>
-      <h1>Player by Season</h1>
+      <h1>Player By Season</h1>
       <SeasonTable />
       <h3>Chart Key</h3>
     </div>
