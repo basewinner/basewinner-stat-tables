@@ -25,7 +25,6 @@ export const WeekTable = () => {
       }));
       //Filtering out any player week data with less than 10 PA's
       let filteredPlayers = players.filter(p => p.pa >= 10);
-      debugger
       setData(filteredPlayers);
     })();
   }, []);

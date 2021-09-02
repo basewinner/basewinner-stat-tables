@@ -1,5 +1,6 @@
 import { format } from 'date-fns'
 import { basic }from './sortTypes'
+import './WeekTable.css'
 
 export const WEEK_COLUMNS = [
 

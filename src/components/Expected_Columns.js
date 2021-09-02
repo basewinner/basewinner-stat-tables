@@ -57,7 +57,7 @@ export const EXPECTED_COLUMNS = [
       return format(value, value.toFixed(0))
     }
   },
-  {
+  { 
     Header: 'xWins',
     Footer: 'xWins',
     accessor: 'xWins',

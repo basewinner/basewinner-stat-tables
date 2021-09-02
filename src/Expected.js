@@ -9,7 +9,7 @@ function Expected() {
     <div>
       <h1 className="standings">MLB Expected Standings</h1>
       <ExpectedTable />
-      <h5 className="left">Published Tuesday, August 24th @ 7:00 AM ET</h5>
+      <h5 className="left">Published Thursday, September 2nd @ 7:00 AM ET</h5>
       <h3>Chart Key</h3>
     </div>
   );
