@@ -117,8 +117,8 @@ export const WEEK_COLUMNS = [
     }
 },
  {
-    Header: 'Season rank',
-    Footer: 'Season rank',
+    Header: 'Season Rank',
+    Footer: 'Season Rank',
     accessor: '3M Batting Rank',
     sortType: basic,
     disableFilters: true
